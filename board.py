@@ -40,6 +40,31 @@ class Board():
                     self.set_ship_vertically(ship)
                 break
 
+    def set_ship_horizontally(self, ship):
+        board_width = self.get_width_of_board()
+        ship_length = ship.get_ship_length()
+
+        row = randint(0, board_width - 1)
+        column = randint(0, board_width - ship_length)
+
+        can_ship_be_set = False
+        while not can_ship_be_set:
+            counter = 0
+            for index in range(column, column + ship_length):
+                cell = self.get_board_cell(row, index)
+                if not cell.get_contains_ship():
+                    counter += 1
+
+            if counter == ship_length:
+                can_ship_be_set = True
+            else:
+                row = randint(0, board_width - 1)
+                column = randint(0, board_width - ship_length)
+
+        for index in range(column, column + ship_length):
+            cell = self.get_board_cell(row, index)
+            cell.set_contains_ship()
+
     def set_ship_vertically(self, ship):
         # Generate random row and column for ship to be set on
         row = randint(0, self.get_width_of_board() - ship.get_ship_length())
