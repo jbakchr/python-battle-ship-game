@@ -3,12 +3,8 @@ from cell import Cell
 
 class Board():
     def __init__(self) -> None:
-        print("The Board ..")
-
-        # When the Board first initializes it needs to create a 10 x 10
-        # board
-        self.board = self.create_board()
-        print(self.board)
+        self.create_board()
+        self.print_board()
 
     def create_board(self):
         board = []
@@ -18,4 +14,27 @@ class Board():
                 cell = Cell(i, j)
                 row.append((cell))
             board.append(row)
-        return board
+        self.board = board
+
+    def get_board(self):
+        return self.board
+
+    def get_width_of_board(self):
+        return len(self.board[0])
+
+    def print_board(self):
+        self.print_top_of_board()
+        self.print_board_cells()
+
+    def print_top_of_board(self):
+        top_to_print = " "
+        for i in range(0, self.get_width_of_board()):
+            top_to_print += "_ "
+        print(top_to_print)
+
+    def print_board_cells(self):
+        for row in self.get_board():
+            row_to_print = "|"
+            for cell in row:
+                row_to_print += "_|"
+            print(row_to_print)
