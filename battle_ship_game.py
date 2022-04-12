@@ -1,4 +1,5 @@
 from board import Board
+from utils.clear_console import clear_console
 
 
 class BattelShipGame():
@@ -8,6 +9,7 @@ class BattelShipGame():
 
     def play(self):
         while not self.is_game_over:
+            clear_console()
             self.game_board.print_board()
             (row, column) = self.ask_user_to_pick_cell()
             self.game_board.set_board_cell(int(row), int(column))
