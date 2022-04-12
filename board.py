@@ -22,10 +22,11 @@ class Board():
         return len(self.board[0])
 
     def print_board(self):
-        self.print_divider()
+        self.print_top_of_board()
         self.print_board_cells()
+        print()
 
-    def print_divider(self):
+    def print_top_of_board(self):
         top_to_print = " "
         for i in range(0, self.get_width_of_board()):
             top_to_print += "_ "
