@@ -37,8 +37,38 @@ class Board():
                 if direction:
                     print("Set ship horizontal")
                 else:
-                    print("Set ship vertically")
+                    self.set_ship_vertically(ship)
                 break
+
+    def set_ship_vertically(self, ship):
+        # Generate random row and column for ship to be set on
+        row = randint(0, self.get_width_of_board() - ship.get_ship_length())
+        column = randint(0, self.get_width_of_board() - 1)
+        print("ship length:", ship.get_ship_length())
+        print("row:", row)
+        print("column:", column)
+
+        # Check if ship can be set from position and downwards
+        can_ship_be_set = False
+        while not can_ship_be_set:
+            counter = 0
+            for index in range(row, row + ship.get_ship_length()):
+                # Check if cell contains ship
+                cell = self.get_board_cell(index, column)
+                if not cell.get_contains_ship():
+                    counter += 1
+
+            if counter == ship.get_ship_length():
+                can_ship_be_set = True
+            else:
+                row = randint(0, self.get_width_of_board() -
+                              ship.get_ship_length())
+                column = randint(0, self.get_width_of_board() - 1)
+
+        # Set ship
+        for index in range(row, row + ship.get_ship_length()):
+            cell = self.get_board_cell(index, column)
+            cell.set_contains_ship()
 
     def get_board(self):
         return self.board

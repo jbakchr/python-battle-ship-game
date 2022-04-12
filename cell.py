@@ -13,3 +13,6 @@ class Cell():
 
     def get_contains_ship(self):
         return self.contains_ship
+
+    def set_contains_ship(self):
+        self.contains_ship = True
