@@ -1,3 +1,4 @@
+from game_header import GameHeader
 from board import Board
 from utils.clear_console import clear_console
 
@@ -5,11 +6,13 @@ from utils.clear_console import clear_console
 class BattelShipGame():
     def __init__(self) -> None:
         self.is_game_over = False
+        self.game_header = GameHeader("Awesome Battle Ship Game")
         self.game_board = Board()
 
     def play(self):
         while not self.is_game_over:
             clear_console()
+            self.game_header.print_game_header()
             self.game_board.print_board()
             (row, column) = self.ask_user_to_pick_cell()
             self.game_board.set_board_cell(int(row), int(column))
