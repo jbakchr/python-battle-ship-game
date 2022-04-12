@@ -8,5 +8,8 @@ class Cell():
     def get_is_picked(self):
         return self.is_picked
 
+    def set_is_picked(self):
+        self.is_picked = True
+
     def get_contains_ship(self):
         return self.contains_ship

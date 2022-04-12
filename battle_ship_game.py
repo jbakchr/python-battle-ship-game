@@ -10,9 +10,7 @@ class BattelShipGame():
         while not self.is_game_over:
             self.game_board.print_board()
             (row, column) = self.ask_user_to_pick_cell()
-            print(row)
-            print(column)
-            break
+            self.game_board.set_board_cell(int(row), int(column))
 
     def ask_user_to_pick_cell(self):
         print("Please choose row and column")

@@ -44,3 +44,7 @@ class Board():
                 else:
                     row_to_print += "_|"
             print(row_to_print)
+
+    def set_board_cell(self, row, column):
+        cell = self.get_board()[row][column]
+        cell.set_is_picked()
