@@ -36,5 +36,11 @@ class Board():
         for row in self.get_board():
             row_to_print = "|"
             for cell in row:
-                row_to_print += "_|"
+                if cell.get_is_picked():
+                    if cell.get_contains_ship():
+                        row_to_print += "x|"
+                    else:
+                        row_to_print += "o|"
+                else:
+                    row_to_print += "_|"
             print(row_to_print)
