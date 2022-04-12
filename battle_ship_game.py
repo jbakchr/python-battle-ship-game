@@ -6,4 +6,4 @@ class BattelShipGame():
         self.game_board = Board()
 
     def play(self):
-        print("Lets play!")
+        pass
