@@ -44,9 +44,6 @@ class Board():
         # Generate random row and column for ship to be set on
         row = randint(0, self.get_width_of_board() - ship.get_ship_length())
         column = randint(0, self.get_width_of_board() - 1)
-        print("ship length:", ship.get_ship_length())
-        print("row:", row)
-        print("column:", column)
 
         # Check if ship can be set from position and downwards
         can_ship_be_set = False
