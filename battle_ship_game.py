@@ -16,8 +16,6 @@ class BattelShipGame():
 
     def ask_user_to_pick_cell(self):
         print("Please choose row and column")
-
         row = input("Row (0-9): ")
         column = input("Column (0-9): ")
-
         return (row, column)
