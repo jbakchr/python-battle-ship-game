@@ -1,4 +1,4 @@
-from random import shuffle
+from random import shuffle, randint
 from ship import Ship
 from cell import Cell
 
@@ -7,6 +7,7 @@ class Board():
     def __init__(self) -> None:
         self.create_board()
         self.create_ships()
+        self.set_ships_on_board()
 
     def create_board(self):
         board = []
@@ -28,6 +29,16 @@ class Board():
 
         shuffle(ships)
         self.ships = ships
+
+    def set_ships_on_board(self):
+        for ship in self.ships:
+            while not ship.is_set_on_board():
+                direction = randint(0, 1)
+                if direction:
+                    print("Set ship horizontal")
+                else:
+                    print("Set ship vertically")
+                break
 
     def get_board(self):
         return self.board
