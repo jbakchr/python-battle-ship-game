@@ -4,7 +4,6 @@ from cell import Cell
 class Board():
     def __init__(self) -> None:
         self.create_board()
-        self.print_board()
 
     def create_board(self):
         board = []
