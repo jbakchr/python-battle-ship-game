@@ -1,4 +1,7 @@
 from battle_ship_game import BattelShipGame
 
-game = BattelShipGame()
-game.play()
+try:
+    game = BattelShipGame()
+    game.play()
+except KeyboardInterrupt:
+    print("\n\nOkay then. Bye bye then .. 👋\n")
