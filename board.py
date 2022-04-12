@@ -23,10 +23,10 @@ class Board():
         return len(self.board[0])
 
     def print_board(self):
-        self.print_top_of_board()
+        self.print_divider()
         self.print_board_cells()
 
-    def print_top_of_board(self):
+    def print_divider(self):
         top_to_print = " "
         for i in range(0, self.get_width_of_board()):
             top_to_print += "_ "
@@ -38,9 +38,9 @@ class Board():
             for cell in row:
                 if cell.get_is_picked():
                     if cell.get_contains_ship():
-                        row_to_print += "x|"
+                        row_to_print += "\033[4mx\033[0m" + "|"
                     else:
-                        row_to_print += "o|"
+                        row_to_print += "\033[4mo\033[0m" + "|"
                 else:
                     row_to_print += "_|"
             print(row_to_print)
