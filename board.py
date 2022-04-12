@@ -1,9 +1,12 @@
+from random import shuffle
+from ship import Ship
 from cell import Cell
 
 
 class Board():
     def __init__(self) -> None:
         self.create_board()
+        self.create_ships()
 
     def create_board(self):
         board = []
@@ -14,6 +17,17 @@ class Board():
                 row.append((cell))
             board.append(row)
         self.board = board
+
+    def create_ships(self):
+        ship_lengths = [2, 3, 3, 4, 5]
+        ships = []
+
+        for length in ship_lengths:
+            ship = Ship(length)
+            ships.append(ship)
+
+        shuffle(ships)
+        self.ships = ships
 
     def get_board(self):
         return self.board
