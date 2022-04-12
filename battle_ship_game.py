@@ -22,8 +22,13 @@ class BattelShipGame():
         row = input("Row (0-9): ")
         column = input("Column (0-9): ")
 
-        while self.game_board.get_board_cell(int(row), int(column)).get_is_picked():
-            print("\nCell is already picked. Please choose again")
+        try:
+            while self.game_board.get_board_cell(int(row), int(column)).get_is_picked():
+                print("\nCell is already picked. Please choose again")
+                row = input("Row (0-9): ")
+                column = input("Column (0-9): ")
+        except:
+            print("\nIncorrect input. Please choose again.")
             row = input("Row (0-9): ")
             column = input("Column (0-9): ")
 
