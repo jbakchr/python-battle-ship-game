@@ -1,9 +1,9 @@
-from board import Board
+from board import GameBoard
 
 
 class BattelShipGame():
     def __init__(self) -> None:
-        self.board = Board()
+        self.game_board = GameBoard()
 
     def play(self):
         print("Lets play!")
