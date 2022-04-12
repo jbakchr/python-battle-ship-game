@@ -1,3 +1,6 @@
+from cell import Cell
+
+
 class Board():
     def __init__(self) -> None:
         print("The Board ..")
@@ -12,6 +15,7 @@ class Board():
         for i in range(0, 10):
             row = []
             for j in range(0, 10):
-                row.append((i, j))
+                cell = Cell(i, j)
+                row.append((cell))
             board.append(row)
         return board
